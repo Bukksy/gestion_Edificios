@@ -11,6 +11,10 @@ class Usuario(AbstractUser):
     ]
     rol = models.CharField(max_length=20, choices=ROL_CHOICES)
     direccion = models.CharField(max_length=255, blank=True, null=True)
+    nombre = models.CharField(max_length=50, blank=True, null=True)
+    apellidop = models.CharField(max_length=50, blank=True, null=True)
+    apellidom = models.CharField(max_length=50, blank=True, null=True)
+
 
     groups = models.ManyToManyField(
         'auth.Group',
