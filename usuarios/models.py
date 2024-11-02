@@ -10,10 +10,10 @@ class Usuario(AbstractUser):
         ('administrativo', 'Administrativo'),
     ]
     rol = models.CharField(max_length=20, choices=ROL_CHOICES)
-    direccion = models.CharField(max_length=255, blank=True, null=True)
     nombre = models.CharField(max_length=50, blank=True, null=True)
     apellidop = models.CharField(max_length=50, blank=True, null=True)
-    apellidom = models.CharField(max_length=50, blank=True, null=True)
+    usuario = models.CharField(max_length=50, blank=True, null=True)
+    password = models.CharField(max_length=12, min_lenght=8 , blank=True, null=True)
 
 
     groups = models.ManyToManyField(
