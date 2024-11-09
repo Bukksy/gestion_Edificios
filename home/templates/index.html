@@ -9,8 +9,8 @@
     <link href="{% static 'css/style-home.css' %}" rel="stylesheet">
 </head>
 <body>
-    <div class="container-nav">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-nav" >
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" >
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">XYZ</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,12 +19,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="#" style="background-color: #fed353; border-radius: 20px; padding: 5px; width: 60px; text-align: center;">Inicio</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="#">Servicios</a>
                         </li>
+
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Reservar</a>
+                      </li>
         
                         {% if user.is_authenticated %}
                             <li class="nav-item dropdown">
@@ -50,104 +54,133 @@
 
     <div class="section section1">
         <h1 id="welcome-message"></h1>
+        <hr>
+        <p>Bienvenidos a nuestra nueva web {% if user.is_authenticated %} {{ user.username }} {% else %} usuario {% endif %}</p>
     </div>
 
     <div class="section section2">
-        <h1>Novedades </h1>
-        <p> Mantente actualizado</p>
-        <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{% static 'img/Logo_DuocUC.svg.png' %}" alt="My image">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
-                </div>
+      <h1 class="text-center">Novedades</h1>
+      <p class="text-center" style="font-size: small;">Mantente actualizado</p>
+      
+      <div class="container" style="display: grid; justify-content: center; align-items: center;">
+          <div id="carouselExampleCaptions" class="carousel slide mx-auto">
+              <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
               </div>
-              <div class="carousel-item">
-                <img src="{% static 'img/Logo_DuocUC.svg.png' %}" alt="My image">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Some representative placeholder content for the second slide.</p>
-                </div>
+              <div class="carousel-inner" style="display: grid; justify-content: center; align-items: center; height: auto;">
+                  <div class="carousel-item active">
+                      <img src="{% static 'img/Logo_DuocUC.svg.png' %}" class="d-block w-100" alt="First slide">
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br><br>
+                      <div class="carousel-caption d-none d-md-block">
+                          <h5>First Novedad label</h5>
+                          <p>Some representative placeholder content for the first Novedad.</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <img src="{% static 'img/Logo_DuocUC.svg.png' %}" class="d-block w-100" alt="Second slide">
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br><br>
+                      <div class="carousel-caption d-none d-md-block">
+                          <h5>Second Novedad label</h5>
+                          <p>Some representative placeholder content for the second Novedad.</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <img src="{% static 'img/Logo_DuocUC.svg.png' %}" class="d-block w-100" alt="Third slide">
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <div class="carousel-caption d-none d-md-block">
+                          <h5>Third slide label</h5>
+                          <p>Some representative placeholder content for the third slide.</p>
+                      </div>
+                  </div>
               </div>
-              <div class="carousel-item">
-                <img src="{% static 'img/Logo_DuocUC.svg.png' %}" alt="My image">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>Some representative placeholder content for the third slide.</p>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
           </div>
-    </div>
-
-    <div class="section section3">
-        <h1>Servicios</h1>
-        <p>Tus servicios favoritos</p>
-        
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Visitas</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Reservar</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Pagar cuentas</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Avisos</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-            </div>
         </div>
-
+      </div>
+  
+    <div class="section section3">
+      <h1 class="text-center">Servicios</h1>
+      <p class="text-center">Tus servicios favoritos</p>
+      
+      <div class="container">
+          <div class="row">
+              <!-- Card 1 -->
+              <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                  <div class="card h-100">
+                      <img src="{% static 'img/cerrar-hombre-tomando-fotos-telefono_23-2149060502.avif' %}" class="card-img-top" alt="..." style="height: 230px;">
+                      <div class="card-body">
+                          <h5 class="card-title">Visitas</h5>
+                          <p class="card-text">Revisa tus visitas y el tiempo restante de estas.</p>
+                          <a href="#" class="btn btn-primary">Revisa tus visitas</a>
+                      </div>
+                  </div>
+              </div>
+  
+              <!-- Card 2 -->
+              <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                  <div class="card h-100">
+                      <img src="{% static 'img/Piscinaschicaweb1.png' %}" class="card-img-top" alt="..." style="height: 230px;">
+                      <div class="card-body">
+                          <h5 class="card-title">Reservar</h5>
+                          <p class="card-text">Reserva tus espacios favoritos en tu condominio.</p>
+                          <a href="#" class="btn btn-primary">Reservar</a>
+                      </div>
+                  </div>
+              </div>
+  
+              <!-- Card 3 -->
+              <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                  <div class="card h-100">
+                      <img src="{% static 'img/LAYZLLL7RBGW5CIGKKIZQQVVO4.jpg' %}" class="card-img-top" alt="..." style="height: 230px;">
+                      <div class="card-body">
+                          <h5 class="card-title">Pagar cuentas</h5>
+                          <p class="card-text">Paga o revisa tus cuentas desde este servicio.</p>
+                          <a href="#" class="btn btn-primary">Revisar Cuentas</a>
+                      </div>
+                  </div>
+              </div>
+  
+              <!-- Card 4 -->
+              <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                  <div class="card h-100">
+                      <img src="{% static 'img/el-carácter-del-megáfono-muestra-avisos-que-anuncia-y-los-anuncia-34210551.webp' %}" class="card-img-top" alt="..." style="height: 230px;">
+                      <div class="card-body">
+                          <h5 class="card-title">Avisos</h5>
+                          <p class="card-text">Avisos variados sobre el condominio y el software.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    
     </div>
-
     <script src="{% static 'js/script.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
+
 </html>
