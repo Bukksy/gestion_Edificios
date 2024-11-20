@@ -4,7 +4,7 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Mi Página con Efecto de Escritura</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="{% static 'css/style-home.css' %}" rel="stylesheet">
 </head>
@@ -19,15 +19,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'inicio' %}">Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="#" style="background-color: #fed353; border-radius: 20px; padding: 5px; width: 60px; text-align: center;">Inicio</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'visitas:visitas' %}">Visitas</a>
+                            <a class="nav-link" href="#">Servicios</a>
                         </li>
 
                         <li class="nav-item">
-                          <a class="nav-link" href="{% url 'reservas:reservas' %}">Reservar</a>
+                          <a class="nav-link" href="#">Reservar</a>
                       </li>
         
                         {% if user.is_authenticated %}
