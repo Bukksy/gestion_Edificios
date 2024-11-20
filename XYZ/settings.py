@@ -38,13 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'historial',
     'usuarios',
     'reservas',
-    'soporte',
-    'pagos',
     'visitas',
     'home',
+    'historial',
 ]
 
 LOGIN_URL = '/usuarios/login/'
