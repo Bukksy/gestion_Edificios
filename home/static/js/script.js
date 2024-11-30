@@ -4,7 +4,7 @@ const messages = [
     "Bonjour, bienvenue!",   
     "Hallo, willkommen!",    
     "Ciao, benvenuti!",      
-    "Olá, bem-vindos!"       
+    "Ola, bem-vindos!"       
 ];
 
 let currentMessageIndex = 0;
