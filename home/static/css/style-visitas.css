@@ -111,3 +111,29 @@ p{
     fill: #bebebe;
     transform: scale(1.2);
   }
+  
+  .botones{
+    width: 200px;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;  /* Inicialmente oculto */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.popup.show {
+    display: block;
+    opacity: 1;
+}

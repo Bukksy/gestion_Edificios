@@ -4,6 +4,7 @@ from usuarios.models import Usuario
 class Visita(models.Model):
     residente = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='residente_visita')
     visitante_nombre = models.CharField(max_length=100)
+    rut_visitante = models.CharField(max_length=9, default='12345678-9')
     fecha_entrada = models.DateTimeField(auto_now_add=True)
     fecha_salida = models.DateTimeField(null=True, blank=True)
 

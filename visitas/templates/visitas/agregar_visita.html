@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Visita</title>
+</head>
+<body>
+    <h1>Agregar Visita</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color: green;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="residente">Residente:</label>
+        <select id="residente" name="residente">
+            {% for residente in residentes %}
+                <option value="{{ residente.id }}">{{ residente.username }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="visitante_nombre">Nombre del Visitante:</label>
+        <input type="text" id="visitante_nombre" name="visitante_nombre" required>
+        <br>
+        <label for="hora_entrada">Hora de Entrada:</label>
+        <input type="text" id="hora_entrada" value="{{ hora_actual }}" readonly>
+        <br>
+        <button type="submit">Guardar Visita</button>
+    </form>
+</body>
+</html>
