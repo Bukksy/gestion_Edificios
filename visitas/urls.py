@@ -5,5 +5,6 @@ app_name='visitas'
 
 urlpatterns = [
     path('', views.visitas, name='visitas'),
-    path('registrar/', views.agregar_visita, name='agregar_visita'),
+    path('registrar', views.registrar, name='registrar'),
+    path('historial/', views.historial_visitas, name='historial_visitas'),
 ]

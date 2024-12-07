@@ -1,5 +1,6 @@
 from django.db import models
 from usuarios.models import Usuario
+from django.utils import timezone  
 
 class Visita(models.Model):
     residente = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='residente_visita')
@@ -10,6 +11,12 @@ class Visita(models.Model):
 
     def __str__(self):
         return f"Se registra la visita de: {self.visitante_nombre} a {self.residente.username}"
+    
+    def estado_visita(self):
+        if self.fecha_salida and self.fecha_salida <= timezone.now():
+            return "Tiempo Completo"
+        else:
+            return "En Progreso"
 
 class Aviso(models.Model):
     residente = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='residente_aviso')

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Historial de Visitas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(41, 40, 40);
+            color: goldenrod;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .table-container {
+            background-color: white;
+            color: black;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        table th {
+            background-color: goldenrod;
+            color: white;
+        }
+
+        a {
+            color: goldenrod;
+            text-decoration: none;
+            display: block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Historial de Visitas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Residente</th>
+                    <th>Visitante</th>
+                    <th>RUT Visitante</th>
+                    <th>Fecha de Entrada</th>
+                    <th>Fecha de Salida</th>
+                    <th>Estado de la Visita</th> <!-- Nueva columna -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for visita in visitas %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ visita.residente.username }}</td>
+                    <td>{{ visita.visitante_nombre }}</td>
+                    <td>{{ visita.rut_visitante }}</td>
+                    <td>{{ visita.fecha_entrada|date:"d/m/Y" }} | {{ visita.fecha_entrada|date:"H:i" }}</td>
+                    <td>
+                        {% if visita.fecha_salida %}
+                            {{ visita.fecha_salida|date:"d/m/Y" }} | {{ visita.fecha_salida|date:"H:i" }}
+                        {% else %}
+                            Pendiente
+                        {% endif %}
+                    </td>
+                    <td>{{ visita.estado_visita }}</td> 
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7">No hay visitas registradas.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <a href="{% url 'visitas:visitas' %}">
+            <button style="width: 100px;" type="button" class="btn btn-warning">Volver</button>
+        </a>
+        
+    </div>
+</body>
+</html>
