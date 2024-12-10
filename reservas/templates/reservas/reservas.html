@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -7,28 +7,29 @@
     <title>Reservar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="{% static 'css/style-reservar.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
-    <div class="container-nav" >
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" >
+    <div class="container-nav">
+        <nav class="navbar navbar-expand-lg" style="background-color: goldenrod; font-family: 'logo'; font-size: 20px; box-shadow: 0px 1px 5px gray; height: auto;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">XYZ</a>
+                <a class="navbar-brand" href="#" style="font-size: 25px; color: white; filter: drop-shadow(1px 1px 5px black);">XYZ</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'inicio' %}">Inicio</a>
                         </li>
-
+        
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'visitas:visitas' %}">Visitas</a>
                         </li>
-
+        
                         <li class="nav-item">
-                          <a class="nav-link" href="{% url 'reservas:reservas' %}">Reservar</a>
-                      </li>
+                            <a class="nav-link" style="color: black;" href="{% url 'reservas:reservas' %}">Reservar</a>
+                        </li>
         
                         {% if user.is_authenticated %}
                             <li class="nav-item dropdown">
@@ -50,17 +51,82 @@
                 </div>
             </div>
         </nav>
+    
     </div>    
 
     <div class="section section1">
-        <h1 id="welcome-message"></h1>
-        <hr>
-        <p>Reserva {% if user.is_authenticated %} {{ user.username }} {% else %} usuario {% endif %}</p>
+        <h1>Reserva tus espacios favoritos</h1>
+        <div class="mt-4">
+            <select class="form-select" id="reservaSelect">
+                <option selected disabled>Seleccione una opción de reserva</option>
+                <option value="sala_reuniones">Sala de Reuniones</option>
+                <option value="cancha_tenis">Cancha de Tenis</option>
+                <option value="piscina">Piscina</option>
+            </select>
+            <button class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#calendarModal" id="showCalendarBtn" disabled>Ver Disponibilidad</button>
+        </div>
+        <div class="container-lol">
+            <div class="card">
+              <div class="box">
+                <div class="content">
+                  <img src="{% static '/img/psicina.png' %}" alt="piscina" style="width: 80px;">
+                  <h3>Piscina</h3>
+                  <p>Reserva nuestra increible piscina</p>
+                </div>
+              </div>
+            </div>
+          
+            <div class="card">
+              <div class="box">
+                <div class="content">
+                  <img src="{% static '/img/tenis.png' %}" alt="piscina" style="width: 80px;">
+                  <h3>Tennis</h3>
+                  <p>Descubre nuestras nuevas canchas de tennis</p>
+                </div>
+              </div>
+            </div>
+          
+            <div class="card">
+              <div class="box">
+                <div class="content">
+                    <img src="{% static '/img/reuniones.png' %}" alt="piscina" style="width: 80px;">
+                  <h3>Reuniones</h3>
+                  <p>Reserva nuestra sala de reuniones y eventos</p>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
     
+    <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="calendarModalLabel">Calendario de Reservas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="calendarContainer" class="text-center">
+                        <div id="calendar" class="calendar-container">
+                            <div class="calendar-header">
+                                <button id="prevMonth" class="btn btn-outline-secondary">«</button>
+                                <h4 id="monthYear">Enero 2024</h4>
+                                <button id="nextMonth" class="btn btn-outline-secondary">»</button>
+                            </div>
+                            <div class="calendar-days" id="calendarDays"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="reserveButton" disabled>Reservar</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="{% static 'js/reservas.js' %}"></script>
+</body>
 </html>

@@ -1,3 +1,34 @@
+@font-face {
+    font-family: 'logo';
+    src: url('/static/font/Clouts!.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'titulos';
+  src: url('/static/font/American Captain.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1{
+  font-family: titulos;
+  margin: 0 auto;
+}
+
+p{
+  font-family: monospace;
+}
+
+li{
+  font-size: 23px;
+}
+
+body{
+    background-color: rgb(41, 40, 40);
+}
+
 .section {
     height: 100vh;
     display: flex;
@@ -5,4 +36,202 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
+
+    background-color: rgb(41, 40, 40);
+
+    color: goldenrod;
+}
+
+ .container-lol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px 0;
+}
+
+.container-lol h3{
+  font-family: 'logo';
+  font-size: 40px;
+}
+
+ .container-lol .card {
+  position: relative;
+  min-width: 320px;
+  height: 440px;
+  background: linear-gradient(goldenrod, black);
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 30px;
+  transition: 0.5s;
+}
+
+ .container-lol .card:nth-child(1) .box .content a {
+  background: linear-gradient(goldenrod, rgba(0, 0, 0, 0.534));
+}
+
+ .container-lol .card:nth-child(2) .box .content a {
+  background: linear-gradient(goldenrod, rgba(0, 0, 0, 0.534));
+}
+
+ .container-lol .card:nth-child(3) .box .content a {
+  background: linear-gradient(goldenrod, rgba(0, 0, 0, 0.534));
+}
+
+ .container-lol .card .box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #2a2b2f;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+ .container-lol .card .box:hover {
+  transform: translateY(-50px);
+}
+
+ .container-lol .card .box:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+ .container-lol .card .box .content {
+  padding: 20px;
+  text-align: center;
+}
+
+ .container-lol .card .box .content h2 {
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  font-size: 8rem;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+ .container-lol .card .box .content h3 {
+  color: #fff;
+  z-index: 1;
+  transition: 0.5s;
+  margin-bottom: 15px;
+}
+
+ .container-lol .card .box .content p {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+ .container-lol .card .box .content a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  background: black;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+ .container-lol .card .box .content a:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+body {
+  background-color: #f0f4f7;
+  font-family: 'Arial', sans-serif;
+}
+
+.calendar-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header h4 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+
+.calendar-day {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #495057;
+}
+
+.calendar-day:hover {
+  background-color: #e2e6ea;
+  transform: scale(1.1);
+}
+
+.calendar-day.selected {
+  background-color: #ffc107;
+  color: white;
+}
+
+.calendar-day.disabled {
+  background-color: #6c757d;
+  color: white;
+  cursor: not-allowed;
+}
+
+.calendar-day.current {
+  background-color: #28a745;
+  color: white;
+}
+
+.modal-header, .modal-footer {
+  border: none;
+}
+
+.btn-outline-secondary {
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: white;
 }
